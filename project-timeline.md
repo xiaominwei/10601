@@ -24,6 +24,6 @@
 	+ LR
 	+ NN
 	+ D Tree
-
+    + SVM
 	+ Kmeans
 
