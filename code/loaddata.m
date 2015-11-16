@@ -2,7 +2,7 @@
 
 clear all;
 
-CIFAR_DIR='cifar-10-batches-mat/';
+CIFAR_DIR='data/train/';
 
 assert(strcmp(CIFAR_DIR, 'cifar-10-batches-mat/'), ...%strcmp????1
        ['You need to modify the address so that CIFAR_DIR points to ' ...
