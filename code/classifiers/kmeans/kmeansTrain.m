@@ -68,7 +68,8 @@ fprintf('Train accuracy %f%%\n', 100 * (1 - sum(labels ~= yTrain) / length(yTrai
 mdl.theta = theta;
 mdl.m = M;
 mdl.p = P;
-mdl.centroid = centroids;
+mdl.centroids = centroids;
+mdl.trainXC_mean = trainXC_mean;
 
 end
 

@@ -1,10 +1,12 @@
 function [cls] = kmeansClassify(xTest, mdl)
 %KMEANSCLASSIFY Summary of this function goes here
 %   Detailed explanation goes here
+rfSize = 6;
+CIFAR_DIM=[32 32 3];
 M = mdl.m;
 P = mdl.p;
 theta = mdl.theta;
-centroids = mdl.centroids;
+centroids = mdl.centroid;
 
 testXC = extractFeatures(xTest, centroids, rfSize, CIFAR_DIM, M,P);
 
@@ -18,3 +20,4 @@ cls = labels - 1;
 
 end
 
+% fprintf('Test accuracy %f%%\n', 100 * (1 - sum(labels ~= testY) / length(testY)));
