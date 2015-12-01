@@ -16,7 +16,7 @@ testXCs = [testXCs, ones(size(testXCs,1),1)];
 % test and print result
 [val,labels] = max(testXCs*theta, [], 2);
 
-cls = labels - 1;
+cls = labels;
 
 end
 
