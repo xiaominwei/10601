@@ -1,7 +1,8 @@
-function [mdl] = logrTrain(xTrain, yTrain, w0, nIter)
+function [mdl] = logrTrain(xTrain, yTrain)
 step = 0.1;
-w = w0;
+w = ones(size(xTrain,2),1);
 sigma = 0; % regularization term
+nIter = 1000;
 % l = zeros(nIter,1);
 % i = 1;
 while nIter ~= 0

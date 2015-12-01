@@ -31,3 +31,8 @@ test_lab = getSubset(labels',4000,5000,10,1+1000);
 
 mdl = nbTrain(train_set',train_lab);
 res = nbClassify(mdl,test_set');
+
+nb = NaiveBayes.fit(train_set, train_lab);
+Y = predict(nb,test_set);
+cMat = confusionmat(test_lab, train_lab);
+siftAcc = sum(diag(cMat))/sum(sum(cMat));
