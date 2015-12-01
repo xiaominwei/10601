@@ -1,12 +1,15 @@
-function [cls] = kmeansClassify(xTest, mdl)
+function [cls] = classify(Model, xTest)
 %KMEANSCLASSIFY Summary of this function goes here
 %   Detailed explanation goes here
 rfSize = 6;
 CIFAR_DIM=[32 32 3];
-M = mdl.m;
-P = mdl.p;
-theta = mdl.theta;
-centroids = mdl.centroid;
+M = Model.m;
+P = Model.p;
+theta = Model.theta;
+centroids = Model.centroid;
+
+
+addpath('minFunc')
 
 testXC = extractFeatures(xTest, centroids, rfSize, CIFAR_DIM, M,P);
 

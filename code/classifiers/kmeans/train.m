@@ -1,4 +1,4 @@
-function [mdl] = kmeansTrain(xTrain, yTrain)
+function [Model] = train(xTrain, yTrain)
 
 %% Configuration
 addpath minFunc;
@@ -65,11 +65,13 @@ theta = trainSVM(trainXCs, yTrain, C);
 fprintf('Train accuracy %f%%\n', 100 * (1 - sum(labels ~= yTrain) / length(yTrain)));
 
 
-mdl.theta = theta;
-mdl.m = M;
-mdl.p = P;
-mdl.centroids = centroids;
-mdl.trainXC_mean = trainXC_mean;
+Model.theta = theta;
+Model.m = M;
+Model.p = P;
+Model.centroids = centroids;
+Model.trainXC_mean = trainXC_mean;
+
+save('Model.mat', Model);
 
 end
 
