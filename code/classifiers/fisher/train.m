@@ -4,5 +4,6 @@ function [Model] = train(X,Y)
         data = [data;naivehog(reshape(X(i,:),[32,32,3]))'];
     end
     Model = trainFisher(data,Y);
+    save("Model.mat", Model);
 end
 
