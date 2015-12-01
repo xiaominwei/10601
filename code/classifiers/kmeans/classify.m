@@ -7,6 +7,8 @@ M = Model.m;
 P = Model.p;
 theta = Model.theta;
 centroids = Model.centroids;
+trainXC_mean = Model.trainXC_mean;
+trainXC_sd = Model.trainXC_sd;
 
 
 addpath minFunc
