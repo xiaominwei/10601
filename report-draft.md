@@ -45,9 +45,14 @@ GIST is typically computed over the entire image (i.e. it is a global image desc
 
 ### 2.5.Logistic Regression
 
-Logistic regression is one of the most useful linear classifier in machine learning.
+Logistic regression is one of the most useful linear classifier in machine learning. Logistic regression measures the relationship between the categorical dependent variable and one or more independent variables by estimating probabilities using a logistic function, which is the cumulative logistic distribution. The logistic function is shown below:
 
-TODO
+$$
+a = \frac{1}{1+exp(-b)}
+$$
+
+We can use Maximum Conditional Likelihood Estimation(MCLE) to train the model.
+
 
 ### 2.6.Neural Network
 
@@ -59,9 +64,23 @@ However, neural network cannot provide a explicit learning process of its hidden
 
 ### 2.7.Support Vector Machine
 
+SVM is a discriminative training process of linear classifier by maximizing the margin hyperplane of classification[4]:
 
+$$
+f(x)=\sum_{i=1}^{L}\alpha_it_iK(\mathbf{x},\mathbf{x}_i)+d_i 
+$$
 
-### 2.8.Principla Component Analysis
+As CIFAR-10 dataset contains 10 different classes, we need to use the multi-class SVM to classify the images. Using kernel functions, SVM can often find the proper linear sperarable hyperplane in higher dimension while the data is not linear separable originally. We have tested several kernal function and it turns out that the Radial Basis Function(RBF) kernel performs better in this project.
+
+$$
+K(\mathbf{x}_i,\mathbf{x}_j)=exp(-\gamma||\mathbf{x}_i-\mathbf{x}_j||^2),\gamma > 0
+$$
+
+Here $\gamma$ is the kernel parameter. The optimal value of $\gamma$ should be selected by cross validation method.
+
+### 2.8.Principla Component Analysis(PCA)
+
+PCA refers to a specific form of dimension reduction where the principle components are drawn on the sequentially orthogonal axes of the largest variance. It provides a way to reduce dimensionality without losing too much information[5]. With the help of PCA, we can build a model without redundant or irrelevant features.
 
 ---
 
@@ -92,4 +111,14 @@ TODO
 ---
 
 ## 7.Reference
+
+[1] Alex, K. 2009. Learning multiple layers of features from tiny images
+
+[2] Honglak, L., Roger, G., Rajesh, R., and Andrew Y. Ng. 2009. Convolutional deep belief networks for scalable unsupervised learning of hierarchical representations. ICML'09,609-616
+
+[3] Andreal, V., and Brian, F. 2010. Vlfeat: an open and portable library of computer vision algorithms. ACM, New York, NY 2010, 1469-1472
+
+[4] Leslie, C., Eleazar, E., and Stafford, W., 2001. The spectrum kernel: A string kernel for SVM protein classification. Pacific Symposium on Biocomputing. 566-575
+
+[5] Morre, B., 2009. Principal component analysis in  linear systems: Controllability, observability, and model reduction. Automatic Control, IEEE Transactions on Vol. 26. Issue. 1.
 
