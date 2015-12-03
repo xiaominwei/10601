@@ -6,10 +6,12 @@ CIFAR_DIM=[32 32 3];
 M = Model.m;
 P = Model.p;
 theta = Model.theta;
-centroids = Model.centroid;
+centroids = Model.centroids;
+trainXC_mean = Model.trainXC_mean;
+trainXC_sd = Model.trainXC_sd;
 
 
-addpath('minFunc')
+addpath minFunc
 
 testXC = extractFeatures(xTest, centroids, rfSize, CIFAR_DIM, M,P);
 

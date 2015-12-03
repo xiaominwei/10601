@@ -1,3 +1,21 @@
+# Reference Link
+
+code
+
++ [1](https://github.com/tztz8888/10601Project)
++ [2](https://github.com/foreverleer/10601project)
++ [3](https://github.com/bigfishman/Gist-LIBLINEAR-CIFAR-10)
++ [4](https://github.com/salmedina/CIFAR10_Classifier)
+
+svm
+
+
++ [1](http://www.oschina.net/code/snippet_264078_36859)
++ [2](http://www.jeepshoe.org/445929801.htm)
++ [3](http://www.jeepshoe.org/215091506.htm)
++ [4](http://zhidao.baidu.com/question/214677692.html)
+
+
 # Bag of Words 模型
 
 BOW (bag of words) 模型简介 Bag of words模型最初被用在文本分类中，将文档表示成特征矢量。它的基本思想是假定对于一个文本，忽略其词序和语法、句法，仅仅将其看做是一些词汇的集合，而文本中的每个词汇都是独立的。简单说就是讲每篇文档都看成一个袋子（因为里面装的都是词汇，所以称为词袋，Bag of words即因此而来），然后看这个袋子里装的都是些什么词汇，将其分类。如果文档中猪、马、牛、羊、山谷、土地、拖拉机这样的词汇多些，而银行、大厦、汽车、公园这样的词汇少些，我们就倾向于判断它是一篇描绘乡村的文档，而不是描述城镇的。举个例子，有如下两个文档：

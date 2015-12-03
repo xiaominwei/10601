@@ -70,6 +70,7 @@ Model.m = M;
 Model.p = P;
 Model.centroids = centroids;
 Model.trainXC_mean = trainXC_mean;
+Model.trainXC_sd = trainXC_sd;
 
 save('Model.mat', Model);
 
