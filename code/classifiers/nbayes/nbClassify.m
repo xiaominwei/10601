@@ -16,13 +16,13 @@ c = size(p,1);
 
 t = zeros(n,1);
 
-for si = 1 : n
-    ci = 1;
+for si = 1 : n % for each sample
+    ci = 1;    
     max_c = 1;
-    max_lpro = lgau(xTest(si,:),M(:,ci),V(:,ci)) + log(p(ci));
+    max_lpro = lgau(xTest(si,:),M(:,ci),V(:,ci));
     
     for ci = 2 : c
-        lprob = lgau(xTest(si,:),M(:,ci),V(:,ci)) + log(p(ci));
+        lprob = lgau(xTest(si,:),M(:,ci),V(:,ci));
         if(lprob > max_lpro)
             max_lpro = lprob;
             max_c = ci;
@@ -30,12 +30,20 @@ for si = 1 : n
     end
     t(si) = max_c;
 end
+
+t = uint8(t - 1);
 end
 
 function lp = lgau(sample,m,v)
-lp = 0;
+
+
 f = size(m,1);
+%{
 for gi = 1 : f
-    lp = lp + log(normpdf(sample(gi),m(gi),sqrt(v(gi))));
+    lp = lp + log(normpdf(sample(gi),m(gi),(v(gi))));
 end
+%}
+lp = sum(log(normpdf(sample',m,v)));
+% lp = log(mvnpdf(sample',m,v'));
+
 end

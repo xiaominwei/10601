@@ -1,8 +1,6 @@
-
-
 clear all;
 
-CIFAR_DIR='data/train/';
+CIFAR_DIR='cifar-10-batches-mat/';
 
 assert(strcmp(CIFAR_DIR, 'cifar-10-batches-mat/'), ...%strcmp????1
        ['You need to modify the address so that CIFAR_DIR points to ' ...
@@ -22,7 +20,8 @@ f4=load([CIFAR_DIR '/data_batch_4.mat']);
 f5=load([CIFAR_DIR '/data_batch_5.mat']);
 
 trainX = double([f1.data; f2.data; f3.data; f4.data; f5.data]);%50000*3072
-trainY = double([f1.labels; f2.labels; f3.labels; f4.labels; f5.labels]) + 1; % add 1 to labels!,??1?10
+% add 1 to labels, from 1 to 10
+trainY = double([f1.labels; f2.labels; f3.labels; f4.labels; f5.labels]) + 1; 
 clear f1 f2 f3 f4 f5;
 fprintf('Loading Done\n');
 
@@ -37,3 +36,18 @@ fprintf('Loading Done\n');
 % image(:,:,3) = reshape(Blue, 32, 32);
 % 
 % imshow(image/256);
+
+[N,~] = size(trainX);
+imgs = zeros(32,32,3,N);
+for i = 1 : N
+    imgs(:,:,1,i) = reshape(trainX(i,1:1024), 32, 32);
+    imgs(:,:,2,i) = reshape(trainX(i,1025:2048), 32, 32);
+    imgs(:,:,3,i) = reshape(trainX(i,2049:3072),32, 32);
+end
+% clear trainX;
+
+fprintf('Loading test data...\n');
+f1=load([CIFAR_DIR '/test_batch.mat']);
+testX = double(f1.data);
+testY = double(f1.labels) + 1;
+clear f1;
