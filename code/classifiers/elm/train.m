@@ -1,7 +1,14 @@
 function [Model] = train(X,Y)
-    % X feature
+    % X trainX
     % Y label
-    [time, acc, Model] = elm_train(Y, X, 1, 6400, 'tribas');
+    
+    feas = [];
+    for i = 1 : size(X,1)
+        feas = [feas;naivehog(reshape(trainX(i,:),[32,32,3]))'];
+        i
+    end
+    
+    Model = elmTrain(feas,Y,6400,'sig');
     save('Model.mat', 'Model');
 end
 

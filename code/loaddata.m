@@ -13,15 +13,14 @@ assert(strcmp(CIFAR_DIR, 'cifar-10-batches-mat/'), ...%strcmp????1
 %% Load CIFAR training data
 
 fprintf('Loading training data...\n');
-f1=load([CIFAR_DIR '/data_batch_1.mat']);
-f2=load([CIFAR_DIR '/data_batch_2.mat']);
-f3=load([CIFAR_DIR '/data_batch_3.mat']);
-f4=load([CIFAR_DIR '/data_batch_4.mat']);
-f5=load([CIFAR_DIR '/data_batch_5.mat']);
+f1=load([CIFAR_DIR '/small_data_batch_1.mat']);
+f2=load([CIFAR_DIR '/small_data_batch_2.mat']);
+f3=load([CIFAR_DIR '/small_data_batch_3.mat']);
+f4=load([CIFAR_DIR '/small_data_batch_4.mat']);
+f5=load([CIFAR_DIR '/small_data_batch_5.mat']);
 
 trainX = double([f1.data; f2.data; f3.data; f4.data; f5.data]);%50000*3072
-% add 1 to labels, from 1 to 10
-trainY = double([f1.labels; f2.labels; f3.labels; f4.labels; f5.labels]) + 1; 
+trainY = double([f1.labels; f2.labels; f3.labels; f4.labels; f5.labels]); 
 clear f1 f2 f3 f4 f5;
 fprintf('Loading Done\n');
 
@@ -49,5 +48,6 @@ end
 fprintf('Loading test data...\n');
 f1=load([CIFAR_DIR '/test_batch.mat']);
 testX = double(f1.data);
-testY = double(f1.labels) + 1;
+testY = double(f1.labels);
 clear f1;
+fprintf('Loading Done\n');

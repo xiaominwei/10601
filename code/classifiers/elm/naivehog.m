@@ -6,4 +6,3 @@ I = im2single(I);
 hog = vl_hog(I,cellSize);
 hog = hog(:);
 end
-
